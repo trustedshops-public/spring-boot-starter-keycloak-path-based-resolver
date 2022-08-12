@@ -1,0 +1,44 @@
+version: 2.1
+
+orbs:
+  maven: circleci/maven@1.3.0
+
+executors:
+  java8:
+    docker:
+      - image: cimg/openjdk:8.0.302
+    environment:
+      MAVEN_OPTS: -Xmx3512m -Djansi.force=true
+      SPRING_OUTPUT_ANSI_ENABLED: always
+  java11:
+    docker:
+      - image: cimg/openjdk:11.0.12
+    environment:
+      MAVEN_OPTS: -Xmx3512m -Djansi.force=true
+      SPRING_OUTPUT_ANSI_ENABLED: always
+
+jobs:
+  build:
+    executor: java8
+    steps:
+      - checkout
+      - maven/with_cache:
+          steps:
+            - run:
+                name: Build
+                command: mvn -DskipTests=true package
+            - run:
+                name: Generate javadoc
+                command: mvn -DskipTests=true site
+
+workflows:
+  continuous:
+    jobs:
+      - maven/test:
+          matrix:
+            alias: test
+            parameters:
+              executor: [ java8, java11 ]
+      - build:
+          requires:
+            - test
