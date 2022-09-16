@@ -4,13 +4,17 @@ import org.keycloak.adapters.KeycloakDeployment
 import org.keycloak.adapters.spi.HttpFacade
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver
 import org.springframework.context.annotation.Configuration
+import java.lang.IllegalArgumentException
 
 @Configuration
 open class PathBasedKeycloakConfigResolver : KeycloakSpringBootConfigResolver() {
     override fun resolve(request: HttpFacade.Request?): KeycloakDeployment {
         if(request == null) {
-            throw NullPointerException("request")
+            throw IllegalArgumentException("request")
         }
-        return super.resolve(request)
+
+        // TODO Implement
+
+        throw NoPathMatcherException(request)
     }
 }

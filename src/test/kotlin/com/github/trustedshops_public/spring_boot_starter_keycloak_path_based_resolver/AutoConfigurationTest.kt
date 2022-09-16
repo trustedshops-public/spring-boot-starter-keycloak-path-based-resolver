@@ -15,9 +15,9 @@ class AutoConfigurationTest {
     @Test
     fun `Verify autoconfig works when the class is autoconfigured by Spring Boot`() {
         contextRunner
-            .withConfiguration(AutoConfigurations.of(KeycloakPathBasedResolverAutoConfiguration::class.java))
+            .withConfiguration(AutoConfigurations.of(AutoConfiguration::class.java))
             .run {
-                assertNotNull(it.getBean(KeycloakPathBasedResolverAutoConfiguration::class.java))
+                assertNotNull(it.getBean(AutoConfiguration::class.java))
             }
     }
 
@@ -26,7 +26,7 @@ class AutoConfigurationTest {
         contextRunner
             .withConfiguration(UserConfigurations.of(ImportedEnable::class.java))
             .run {
-                assertNotNull(it.getBean(KeycloakPathBasedResolverAutoConfiguration::class.java))
+                assertNotNull(it.getBean(AutoConfiguration::class.java))
             }
     }
 }

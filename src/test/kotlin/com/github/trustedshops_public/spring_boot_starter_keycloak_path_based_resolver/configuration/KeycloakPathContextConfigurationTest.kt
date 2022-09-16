@@ -1,9 +1,8 @@
 package com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.configuration
 
-import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.KeycloakPathBasedResolverAutoConfiguration
+import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.withAutoConfig
 import org.junit.jupiter.api.Test
 import org.keycloak.adapters.KeycloakDeployment
-import org.springframework.boot.autoconfigure.AutoConfigurations
 import org.springframework.boot.context.annotation.UserConfigurations
 import org.springframework.boot.test.context.runner.ApplicationContextRunner
 import kotlin.test.assertNotNull
@@ -29,7 +28,7 @@ class KeycloakPathContextConfigurationTest {
     @Test
     fun `Verify configuration works with one configurer`() {
         contextRunner
-            .withConfiguration(AutoConfigurations.of(KeycloakPathBasedResolverAutoConfiguration::class.java))
+            .withAutoConfig()
             .withConfiguration(UserConfigurations.of(KeycloakPathBasedContextResolverDummy1::class.java))
             .run {
                 assertNotNull( it.getBean(KeycloakPathContextConfiguration::class.java))
@@ -42,7 +41,7 @@ class KeycloakPathContextConfigurationTest {
     @Test
     fun `Verify configuration works with multiple configurer`() {
         contextRunner
-            .withConfiguration(AutoConfigurations.of(KeycloakPathBasedResolverAutoConfiguration::class.java))
+            .withAutoConfig()
             .withConfiguration(
                 UserConfigurations.of(
                     KeycloakPathBasedContextResolverDummy1::class.java,

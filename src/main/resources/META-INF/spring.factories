@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.KeycloakPathBasedResolverAutoConfiguration
+  com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.AutoConfiguration

@@ -6,5 +6,5 @@ import org.springframework.context.annotation.Import
  * Manually enable keycloak-path-based-resolver starter if autoconfiguration is not enabled
  * or you explicitly disabled the starter.
  */
-@Import(KeycloakPathBasedResolverAutoConfiguration::class)
+@Import(AutoConfiguration::class)
 annotation class EnableKeycloakPathBasedResolver

@@ -7,4 +7,4 @@ import org.springframework.context.annotation.Configuration
  */
 @ComponentScan
 @Configuration
-open class KeycloakPathBasedResolverAutoConfiguration
+open class AutoConfiguration
