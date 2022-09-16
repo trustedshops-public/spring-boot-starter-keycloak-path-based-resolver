@@ -11,7 +11,7 @@ class PathBasedKeycloakConfigResolverTest {
         .withAutoConfig()
 
     @Test
-    fun `Null value for request should throw an IllegalArgumentException`() {
+    fun `Verify null value for request should throw an IllegalArgumentException`() {
         contextRunner.run {
             assertThrows<IllegalArgumentException> {
                 it.getBean(PathBasedKeycloakConfigResolver::class.java).resolve(null)
@@ -20,7 +20,7 @@ class PathBasedKeycloakConfigResolverTest {
     }
 
     @Test
-    fun `No registered patch matches should throw an NoPathMatcherException`() {
+    fun `Verify no registered patch matches should throw an NoPathMatcherException`() {
         contextRunner.run {
             assertThrows<NoPathMatcherException> {
                 it.getBean(PathBasedKeycloakConfigResolver::class.java).resolve(DummyFacadeRequest("/test"))
