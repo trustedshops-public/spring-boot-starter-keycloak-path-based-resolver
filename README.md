@@ -117,7 +117,10 @@ keycloak.path-based-resolve.contexts.b2c.realm=b2c
 keycloak.path-based-resolve.contexts.b2c.resource=b2c-billing-api
 keycloak.path-based-resolve.contexts.b2c.public-client=false
 keycloak.path-based-resolve.contexts.b2c.bearer-only=true
-keycloak.path-based-resolve.mappings={ant-matcher=[/b2b/**], context=b2b}, {ant-matcher=[/b2c/**], context=b2c}
+keycloak.path-based-resolve.mappings.0.ant-matcher=[/b2b/**]
+keycloak.path-based-resolve.mappings.0.context=b2b
+keycloak.path-based-resolve.mappings.1.ant-matcher=[/b2c/**]
+keycloak.path-based-resolve.mappings.1.context=b2c
 ```
 
 ## Notes about implementation
