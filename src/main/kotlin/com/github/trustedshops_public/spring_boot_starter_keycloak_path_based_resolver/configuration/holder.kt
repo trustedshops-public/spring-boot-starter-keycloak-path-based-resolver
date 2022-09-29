@@ -28,7 +28,11 @@ class MatcherConfiguration(
  * Configuration allowing to map given ant patterns to keycloak deployments
  */
 class KeycloakPathContextConfigurationHolder {
-    internal val mapping = mutableMapOf<String, KeycloakDeployment>()
+    /**
+     * Mapping, sorted by the longest string being the first in the map, so iteration always uses the most specific
+     * matcher first
+     */
+    internal val mapping = sortedMapOf<String, KeycloakDeployment>(compareBy<String> { -it.length }.thenBy { it })
 
     /**
      * Configure context for given ant path matcher

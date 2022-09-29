@@ -1,5 +1,6 @@
 package com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.configuration
 
+import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.resolver.KeycloakPathBasedContextResolver
 import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.withAutoConfig
 import org.junit.jupiter.api.Test
 import org.keycloak.adapters.KeycloakDeployment

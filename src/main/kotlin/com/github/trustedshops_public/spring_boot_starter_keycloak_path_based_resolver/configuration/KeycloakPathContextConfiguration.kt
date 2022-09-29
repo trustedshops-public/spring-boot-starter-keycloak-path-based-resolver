@@ -1,5 +1,6 @@
 package com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.configuration
 
+import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.resolver.KeycloakPathBasedContextResolver
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
