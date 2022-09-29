@@ -1,10 +1,13 @@
 package com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.keycloak
 
+import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.configuration.KeycloakPathContextConfigurationHolder
 import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.withAutoConfig
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import org.keycloak.adapters.KeycloakDeployment
 import org.springframework.boot.test.context.runner.ApplicationContextRunner
 import org.springframework.mock.web.MockHttpServletRequest
+import kotlin.test.assertNotNull
 
 class PathBasedKeycloakConfigResolverTest {
     private val contextRunner = ApplicationContextRunner()
@@ -25,6 +28,16 @@ class PathBasedKeycloakConfigResolverTest {
             assertThrows<NoPathMatcherException> {
                 it.getBean(PathBasedKeycloakConfigResolver::class.java).resolve(DummyFacadeRequest("/test"))
             }
+        }
+    }
+
+    @Test
+    fun `Verify registered path is matched`() {
+        contextRunner.run {
+            val config = it.getBean(KeycloakPathContextConfigurationHolder::class.java)
+            config.mapping.put("/**", KeycloakDeployment())
+            val context = it.getBean(PathBasedKeycloakConfigResolver::class.java).resolve(DummyFacadeRequest("/test"))
+            assertNotNull(context)
         }
     }
 }

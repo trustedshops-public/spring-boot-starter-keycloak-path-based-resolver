@@ -1,20 +1,31 @@
 package com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.keycloak
 
+import com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.configuration.KeycloakPathContextConfigurationHolder
 import org.keycloak.adapters.KeycloakDeployment
 import org.keycloak.adapters.spi.HttpFacade
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver
 import org.springframework.context.annotation.Configuration
-import java.lang.IllegalArgumentException
+import org.springframework.util.AntPathMatcher
 
 @Configuration
-open class PathBasedKeycloakConfigResolver : KeycloakSpringBootConfigResolver() {
+open class PathBasedKeycloakConfigResolver(
+    private val keycloakPathContextConfigurationHolder: KeycloakPathContextConfigurationHolder
+) : KeycloakSpringBootConfigResolver() {
+
+    private val antPathMatcher = AntPathMatcher()
+
     override fun resolve(request: HttpFacade.Request?): KeycloakDeployment {
-        if(request == null) {
+        if (request == null) {
             throw IllegalArgumentException("request")
         }
 
-        // TODO Implement
+        val requestPath = request.relativePath
 
-        throw NoPathMatcherException(request)
+        return keycloakPathContextConfigurationHolder.mapping.firstNotNullOfOrNull {
+            return@firstNotNullOfOrNull when {
+                antPathMatcher.match(it.key, requestPath) -> it.value
+                else -> null
+            }
+        } ?: throw NoPathMatcherException(request)
     }
 }

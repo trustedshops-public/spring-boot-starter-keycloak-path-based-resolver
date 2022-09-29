@@ -1,6 +1,7 @@
 package com.github.trustedshops_public.spring_boot_starter_keycloak_path_based_resolver.configuration
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Component
 
@@ -15,4 +16,11 @@ open class KeycloakPathContextConfiguration(resolver: List<KeycloakPathBasedCont
 
     @Bean
     fun keycloakPathContextConfigurationHolder() = configuration
+}
+
+@Component
+@ConditionalOnMissingBean(value = [KeycloakPathBasedContextResolver::class])
+open class KeycloakPathContextConfigurationFallback {
+    @Bean
+    fun keycloakPathContextConfigurationHolder() = KeycloakPathContextConfigurationHolder()
 }
