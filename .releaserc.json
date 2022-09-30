@@ -1,0 +1,32 @@
+{
+  "verifyConditions": [
+    "@semantic-release/github",
+    "@conveyal/maven-semantic-release"
+  ],
+  "verifyRelease": [
+    "@conveyal/maven-semantic-release"
+  ],
+  "prepare": [
+    "@conveyal/maven-semantic-release",
+    {
+      "path": "@semantic-release/changelog",
+      "changelogFile": "CHANGELOG.md"
+    },
+    {
+      "path": "@semantic-release/git",
+      "assets": "CHANGELOG.md"
+    }
+  ],
+  "publish": [
+    "@conveyal/maven-semantic-release",
+    "@semantic-release/github",
+    {
+      "path": "semantic-release",
+      "name": "trustedshops-public/spring-boot-starter-keycloak-path-based-resolver"
+    }
+  ],
+  "branches": [
+    "main"
+  ],
+  "tagFormat": "${version}"
+}

@@ -32,6 +32,27 @@
         <tag>main</tag>
     </scm>
 
+    <!--
+    TODO Add distributionManagement based on provider to use
+    <distributionManagement>
+       <repository>
+            <id>github</id>
+            <name>GitHub Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver</url>
+       </repository>
+       <snapshotRepository>
+            <id>ossrh</id>
+            <name>Maven Central Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+       <repository>
+            <id>ossrh</id>
+            <name>Maven Central Releases</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    -->
+
     <properties>
         <java.version>1.8</java.version>
         <dokka.version>1.7.10</dokka.version>
