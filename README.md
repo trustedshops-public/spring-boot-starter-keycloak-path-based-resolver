@@ -24,7 +24,62 @@ Spring Boot Starter making it easy to use multiple Keycloak contexts for differe
 
 ### 2. Configure
 
-#### 2.1 Configure with code
+The starter supports to ways of configuring:
+
+- using code - some kind of DSL
+- using spring properties
+
+We strongly recommend using properties since it is less effort and more predictable.
+
+#### 2.1 Configure with config properties
+
+##### YAML
+
+```yaml
+keycloak:
+  path-based-resolve:
+    contexts:
+      b2b:
+        auth-server-url: https://my-auth-server.url/auth
+        realm: b2b
+        resource: b2b-billing-api
+        public-client: false
+        bearer-only: true
+      b2c:
+        auth-server-url: https://my-auth-server.url/auth
+        realm: b2c
+        resource: b2c-billing-api
+        public-client: false
+        bearer-only: true
+    mappings:
+      - ant-matcher:
+          - /b2b/**
+        context: b2b
+      - ant-matcher:
+          - /b2c/**
+        context: b2c
+```
+
+##### Properties
+
+```properties
+keycloak.path-based-resolve.contexts.b2b.auth-server-url=https://my-auth-server.url/auth
+keycloak.path-based-resolve.contexts.b2b.realm=b2b
+keycloak.path-based-resolve.contexts.b2b.resource=b2b-billing-api
+keycloak.path-based-resolve.contexts.b2b.public-client=false
+keycloak.path-based-resolve.contexts.b2b.bearer-only=true
+keycloak.path-based-resolve.contexts.b2c.auth-server-url=https://my-auth-server.url/auth
+keycloak.path-based-resolve.contexts.b2c.realm=b2c
+keycloak.path-based-resolve.contexts.b2c.resource=b2c-billing-api
+keycloak.path-based-resolve.contexts.b2c.public-client=false
+keycloak.path-based-resolve.contexts.b2c.bearer-only=true
+keycloak.path-based-resolve.mappings.0.ant-matcher=[/b2b/**]
+keycloak.path-based-resolve.mappings.0.context=b2b
+keycloak.path-based-resolve.mappings.1.ant-matcher=[/b2c/**]
+keycloak.path-based-resolve.mappings.1.context=b2c
+```
+
+#### 2.2 Configure with code
 
 ##### Configure with Kotlin
 
@@ -75,53 +130,7 @@ class KeycloakPathBasedContextResolverImpl implements KeycloakPathBasedContextRe
 }
 ```
 
-#### 2.2 Configure with config properties
 
-##### YAML
-
-```yaml
-keycloak:
-  path-based-resolve:
-    contexts:
-      b2b:
-        auth-server-url: https://my-auth-server.url/auth
-        realm: b2b
-        resource: b2b-billing-api
-        public-client: false
-        bearer-only: true
-      b2c:
-        auth-server-url: https://my-auth-server.url/auth
-        realm: b2c
-        resource: b2c-billing-api
-        public-client: false
-        bearer-only: true
-    mappings:
-      - ant-matcher:
-          - /b2b/**
-        context: b2b
-      - ant-matcher:
-          - /b2c/**
-        context: b2c
-```
-
-##### Properties
-
-```properties
-keycloak.path-based-resolve.contexts.b2b.auth-server-url=https://my-auth-server.url/auth
-keycloak.path-based-resolve.contexts.b2b.realm=b2b
-keycloak.path-based-resolve.contexts.b2b.resource=b2b-billing-api
-keycloak.path-based-resolve.contexts.b2b.public-client=false
-keycloak.path-based-resolve.contexts.b2b.bearer-only=true
-keycloak.path-based-resolve.contexts.b2c.auth-server-url=https://my-auth-server.url/auth
-keycloak.path-based-resolve.contexts.b2c.realm=b2c
-keycloak.path-based-resolve.contexts.b2c.resource=b2c-billing-api
-keycloak.path-based-resolve.contexts.b2c.public-client=false
-keycloak.path-based-resolve.contexts.b2c.bearer-only=true
-keycloak.path-based-resolve.mappings.0.ant-matcher=[/b2b/**]
-keycloak.path-based-resolve.mappings.0.context=b2b
-keycloak.path-based-resolve.mappings.1.ant-matcher=[/b2c/**]
-keycloak.path-based-resolve.mappings.1.context=b2c
-```
 
 ## Notes about implementation
 

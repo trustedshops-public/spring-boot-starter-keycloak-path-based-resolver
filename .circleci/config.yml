@@ -30,6 +30,13 @@ jobs:
             - run:
                 name: Generate javadoc
                 command: mvn -DskipTests=true site
+            - run:
+                name: Create package
+                command: mvn -DskipTests=true package
+            - persist_to_workspace:
+                root: target/
+                paths:
+                  - '*.jar'
 
 workflows:
   continuous:
