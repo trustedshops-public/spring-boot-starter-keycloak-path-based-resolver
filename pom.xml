@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.trustedshops-public</groupId>
+    <groupId>io.github.trustedshops-public</groupId>
     <artifactId>spring-boot-starter-keycloak-path-based-resolver</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 

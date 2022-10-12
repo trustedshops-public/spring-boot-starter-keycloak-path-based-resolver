@@ -19,7 +19,7 @@ Spring Boot Starter making it easy to use multiple Keycloak contexts for differe
 
 ```xml
 <dependency>
-    <groupId>com.github.trustedshops-public</groupId>
+    <groupId>io.github.trustedshops-public</groupId>
     <artifactId>spring-boot-starter-keycloak-path-based-resolver</artifactId>
     <version>${spring-boot-starter.keycloak-path-based-resolver.version}</version>
 </dependency>
