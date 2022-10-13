@@ -8,7 +8,7 @@
     </servers>
     <profiles>
         <profile>
-            <id>gpg-sign</id>
+            <id>ossrh</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
