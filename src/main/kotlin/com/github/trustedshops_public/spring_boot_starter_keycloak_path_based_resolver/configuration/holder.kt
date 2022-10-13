@@ -13,12 +13,15 @@ class MatcherConfiguration(
      * @see org.keycloak.adapters.KeycloakDeployment
      */
     fun useKeycloakDeployment(keycloakDeployment: KeycloakDeployment): KeycloakPathContextConfigurationHolder {
-        antPatterns.associateWith { keycloakDeployment }.forEach { pattern, deployment ->
-            if (parent.mapping.containsKey(pattern)) {
-                throw IllegalArgumentException("pattern '${pattern}' can not be assigned twice")
+        antPatterns
+            .associateWith { keycloakDeployment }
+            .forEach { (pattern, deployment) ->
+                if (parent.mapping.containsKey(pattern)) {
+                    throw IllegalArgumentException("pattern '${pattern}' can not be assigned twice")
+                }
+
+                parent.mapping[pattern] = deployment
             }
-            parent.mapping.put(pattern, deployment)
-        }
         parent.mapping.putAll(antPatterns.associateWith { keycloakDeployment })
         return parent
     }
@@ -40,5 +43,5 @@ class KeycloakPathContextConfigurationHolder {
      * For more information check AntPathMatcher
      * @see org.springframework.util.AntPathMatcher
      */
-    fun antMatchers(vararg antPatterns: String) = MatcherConfiguration(this, antPatterns)
+    fun antMatchers(vararg antPatterns: String): MatcherConfiguration = MatcherConfiguration(this, antPatterns)
 }
