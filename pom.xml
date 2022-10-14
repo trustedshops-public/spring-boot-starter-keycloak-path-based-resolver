@@ -69,8 +69,8 @@
 
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.organization>trustedshops-public</sonar.organization>
-        <sonar.projectKey>spring-boot-starter-keycloak-path-based-resolver</sonar.projectKey>
-        <sonar.projectName>${sonar.projectKey}</sonar.projectName>
+        <sonar.projectKey>trustedshops-public_spring-boot-starter-keycloak-path-based-resolver</sonar.projectKey>
+        <sonar.projectName>spring-boot-starter-keycloak-path-based-resolver</sonar.projectName>
     </properties>
 
     <dependencyManagement>
