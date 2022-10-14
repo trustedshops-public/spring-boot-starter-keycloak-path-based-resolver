@@ -7,6 +7,7 @@
     <version>latest-SNAPSHOT</version>
 
     <name>spring-boot-starter-keycloak-path-based-resolver</name>
+    <url>https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver</url>
     <description>
         Spring Boot Starter making it easy to work with path based keycloak configuration
     </description>
@@ -18,6 +19,21 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>trustedshops</id>
+            <name>Trusted Shops</name>
+            <email>info@trustedshops.com</email>
+            <url>https://trustedshops.com</url>
+        </developer>
+        <developer>
+            <id>timo-reymann</id>
+            <name>Timo Reymann</name>
+            <email>mail@timo-reymann.de</email>
+            <url>https://timo-reymann.de</url>
+        </developer>
+    </developers>
 
     <scm>
         <connection>
