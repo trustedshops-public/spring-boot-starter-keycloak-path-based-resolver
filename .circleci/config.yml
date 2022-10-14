@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   maven: circleci/maven@1.3.0
+  semantic-release: trustedshops-public/semantic-release@3.1.3
 
 executors:
   java8:
@@ -46,7 +47,7 @@ jobs:
         description: Suffix to append to version
     steps:
       - checkout
-      - maven/witch-cache:
+      - maven/with_cache:
           steps:
             - run:
                 name: Set version to latest tag
@@ -82,4 +83,12 @@ workflows:
           filters:
             branches:
               ignore:
+                - main
+      - semantic-release/with-changelog-github-config:
+          name: semantic-release
+          requires:
+            - deploy
+          filters:
+            branches:
+              only:
                 - main
