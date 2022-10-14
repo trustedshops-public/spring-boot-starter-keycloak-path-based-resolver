@@ -1,13 +1,8 @@
 {
   "verifyConditions": [
-    "@semantic-release/github",
-    "@conveyal/maven-semantic-release"
-  ],
-  "verifyRelease": [
-    "@conveyal/maven-semantic-release"
+    "@semantic-release/github"
   ],
   "prepare": [
-    "@conveyal/maven-semantic-release",
     {
       "path": "@semantic-release/changelog",
       "changelogFile": "CHANGELOG.md"
@@ -18,7 +13,6 @@
     }
   ],
   "publish": [
-    "@conveyal/maven-semantic-release",
     "@semantic-release/github",
     {
       "path": "semantic-release",
