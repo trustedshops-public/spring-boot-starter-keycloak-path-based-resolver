@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   maven: circleci/maven@1.4.0
   semantic-release: trustedshops-public/semantic-release@3.1.3
+  codecov: codecov/codecov@3.2.4
 
 executors:
   java8:
@@ -19,6 +20,16 @@ executors:
       SPRING_OUTPUT_ANSI_ENABLED: always
 
 jobs:
+  coverage:
+    executor: java11
+    steps:
+      - checkout
+      - maven/with_cache:
+          steps:
+            - run:
+                name: Run tests to record coverage
+                command: mvn test
+            - codecov/upload
   build:
     executor: java8
     steps:
@@ -57,12 +68,7 @@ jobs:
                   echo -e "$GPG_PRIVATE_KEY"  | gpg --import --passphrase "$GPG_PASSPHRASE" --pinentry-mode loopback
             - run:
                 name: Run maven deploy
-                command: >
-                  mvn 
-                    -s .circleci/maven-settings.xml 
-                    -Possrh 
-                    -DskipTests=true 
-                    clean site javadoc:jar gpg:sign package deploy
+                command: mvn -s .circleci/maven-settings.xml  -Possrh -DskipTests=true clean site javadoc:jar gpg:sign package deploy
 
 workflows:
   continuous:
@@ -72,6 +78,9 @@ workflows:
             alias: test
             parameters:
               executor: [ java8, java11 ]
+      - coverage:
+          requires:
+            - test
       - build:
           requires:
             - test
