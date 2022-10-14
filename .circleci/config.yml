@@ -100,8 +100,6 @@ workflows:
           context:
             - gpg
             - maven-central
-          requires:
-            - build
           filters:
             branches:
               ignore:
