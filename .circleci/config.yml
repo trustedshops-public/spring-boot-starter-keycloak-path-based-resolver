@@ -68,12 +68,7 @@ jobs:
                   echo -e "$GPG_PRIVATE_KEY"  | gpg --import --passphrase "$GPG_PASSPHRASE" --pinentry-mode loopback
             - run:
                 name: Run maven deploy
-                command: >
-                  mvn 
-                    -s .circleci/maven-settings.xml 
-                    -Possrh 
-                    -DskipTests=true 
-                    clean site javadoc:jar gpg:sign package deploy
+                command: mvn -s .circleci/maven-settings.xml  -Possrh -DskipTests=true clean site javadoc:jar gpg:sign package deploy
 
 workflows:
   continuous:
