@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   maven: circleci/maven@1.4.0
+  semantic-release: trustedshops-public/semantic-release@3.1.3
 
 executors:
   java8:
@@ -37,6 +38,29 @@ jobs:
                 root: target/
                 paths:
                   - '*.jar'
+  deploy:
+    executor: java8
+    parameters:
+      version_suffix:
+        type: string
+        default: ""
+        description: Suffix to append to version
+    steps:
+      - checkout
+      - maven/with_cache:
+          steps:
+            - run:
+                name: Set version to latest tag
+                command: |
+                  export VERSION=$(git describe --dirty --tags 2>/dev/null || git log -1 --pretty=format:%h)
+                  mvn versions:set -DnewVersion="${VERSION}<<parameters.version_suffix>>"
+            - run:
+                name: Import gpg key
+                command: |
+                  echo -e "$GPG_PRIVATE_KEY"  | gpg --import --passphrase "$GPG_PASSPHRASE" --pinentry-mode loopback
+            - run:
+                name: Run maven deploy
+                command: mvn -s .circleci/maven-settings.xml -Dskiptests=true clean deploy
 
 workflows:
   continuous:
@@ -49,3 +73,36 @@ workflows:
       - build:
           requires:
             - test
+      - deploy:
+          name: deploy-snapshot
+          version_suffix: "-SNAPSHOT"
+          context:
+            - gpg
+            - maven-central
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - main
+      - semantic-release/with-changelog-github-config:
+          name: semantic-release
+          requires:
+            - deploy-snapshot
+          filters:
+            branches:
+              only:
+                - main
+      - deploy:
+          context:
+            - gpg
+            - maven-central
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - /.*/
+            tags:
+              only:
+                - /.*/
