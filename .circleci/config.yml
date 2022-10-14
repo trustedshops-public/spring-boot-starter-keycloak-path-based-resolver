@@ -87,6 +87,8 @@ workflows:
                 - main
       - semantic-release/with-changelog-github-config:
           name: semantic-release
+          context:
+            - semantic-release
           requires:
             - deploy-snapshot
             - test
