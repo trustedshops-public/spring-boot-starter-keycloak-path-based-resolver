@@ -6,13 +6,13 @@ orbs:
 executors:
   java8:
     docker:
-      - image: cimg/openjdk:8.0.302
+      - image: cimg/openjdk:18.0.2
     environment:
       MAVEN_OPTS: -Xmx3512m -Djansi.force=true
       SPRING_OUTPUT_ANSI_ENABLED: always
   java11:
     docker:
-      - image: cimg/openjdk:11.0.12
+      - image: cimg/openjdk:18.0.2
     environment:
       MAVEN_OPTS: -Xmx3512m -Djansi.force=true
       SPRING_OUTPUT_ANSI_ENABLED: always
