@@ -2,5 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>trustedshops-public/.github:renovate-config"
+  ],
+  "ignoreDeps": [
+    "cimg/openjdk"
   ]
 }
