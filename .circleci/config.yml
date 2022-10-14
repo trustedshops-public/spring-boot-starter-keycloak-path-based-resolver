@@ -107,5 +107,4 @@ workflows:
               ignore:
                 - /.*/
             tags:
-              only:
-                - /.*/
+              only: /.*/
