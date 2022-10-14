@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/1.0.0...1.0.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* Add repository for staging ([7aaf93d](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/commit/7aaf93d4dacc4f39b422c41a5b411acb9ef7ae72))
+
 # 1.0.0 (2022-10-14)
 
 
