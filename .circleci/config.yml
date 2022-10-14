@@ -89,6 +89,7 @@ workflows:
           name: semantic-release
           requires:
             - deploy-snapshot
+            - test
           filters:
             branches:
               only:
