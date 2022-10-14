@@ -8,7 +8,7 @@ spring-boot-starter-keycloak-path-based-resolver
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_spring-boot-starter-keycloak-path-based-resolver&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_spring-boot-starter-keycloak-path-based-resolver)
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=trustedshops-public_spring-boot-starter-keycloak-path-based-resolver)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_spring-boot-starter-keycloak-path-based-resolver)
 [![Maven Central Version](https://maven-badges.herokuapp.com/maven-central/io.github.trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/badge.svg)](https://search.maven.org/search?q=g:io.github.trustedshops-public%20AND%20a:spring-boot-starter-keycloak-path-based-resolver&core=gav)
-
+[![codecov](https://codecov.io/github/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/branch/main/graph/badge.svg?token=H1AoyyjEdy)](https://codecov.io/github/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver)
 
 Spring Boot Starter making it easy to use multiple Keycloak contexts for different parts of your service.
 
