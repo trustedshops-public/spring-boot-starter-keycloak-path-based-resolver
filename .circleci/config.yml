@@ -105,8 +105,7 @@ workflows:
           context:
             - semantic-release
           requires:
-            - deploy-snapshot
-            - test
+            - build
           filters:
             branches:
               only:

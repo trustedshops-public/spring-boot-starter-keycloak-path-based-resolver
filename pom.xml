@@ -66,6 +66,11 @@
         <junit.version>5.9.1</junit.version>
         <spring-boot.version>2.7.4</spring-boot.version>
         <keycloak.version>19.0.3</keycloak.version>
+
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.organization>trustedshops-public</sonar.organization>
+        <sonar.projectKey>spring-boot-starter-keycloak-path-based-resolver</sonar.projectKey>
+        <sonar.projectName>${sonar.projectKey}</sonar.projectName>
     </properties>
 
     <dependencyManagement>
