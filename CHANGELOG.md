@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/1.0.1...1.0.2) (2022-10-14)
+
+
+### Bug Fixes
+
+* Add developer information to pom ([1c52c4a](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/commit/1c52c4a1f3737cde5397632ad181d780f40cc4a0))
+
 ## [1.0.1](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/1.0.0...1.0.1) (2022-10-14)
 
 
