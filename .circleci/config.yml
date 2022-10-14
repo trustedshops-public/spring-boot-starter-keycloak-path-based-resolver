@@ -37,6 +37,29 @@ jobs:
                 root: target/
                 paths:
                   - '*.jar'
+  deploy:
+    executor: java8
+    parameters:
+      version_suffix:
+        type: string
+        default: "-SNAPSHOT"
+        description: Suffix to append to version
+    steps:
+      - checkout
+      - maven/witch-cache:
+          steps:
+            - run:
+                name: Set version to latest tag
+                command: |
+                  export VERSION=$(git describe --dirty --tags 2>/dev/null || git log -1 --pretty=format:%h)
+                  mvn versions:set -DnewVersion="${VERSION}<<parameters.version_suffix>>"
+            - run:
+                name: Import gpg key
+                command: |
+                  echo -e "$GPG_PRIVATE_KEY"  | gpg --import --passphrase "$GPG_PASSPHRASE" --pinentry-mode loopback
+            - run:
+                name: Run maven deploy
+                command: mvn -s .circleci/maven-settings.xml -Dskiptests=true clean deploy
 
 workflows:
   continuous:
@@ -49,3 +72,14 @@ workflows:
       - build:
           requires:
             - test
+      - deploy:
+          version_suffix: "-SNAPSHOT"
+          context:
+            - gpg
+            - maven-central
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - main
