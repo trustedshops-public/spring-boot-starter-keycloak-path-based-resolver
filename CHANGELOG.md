@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/1.0.2...1.0.3) (2022-10-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency org.springframework.boot:spring-boot-dependencies to v2.7.5 ([#17](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/issues/17)) ([1b8152d](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/commit/1b8152d1ae689181ff83b9f079fd37e47a06898a))
+
 ## [1.0.2](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/1.0.1...1.0.2) (2022-10-14)
 
 
