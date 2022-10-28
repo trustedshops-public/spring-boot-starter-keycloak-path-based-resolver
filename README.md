@@ -18,8 +18,6 @@ Spring Boot Starter making it easy to use multiple Keycloak contexts for differe
 > As the starter adds **no dependencies** for [Spring Boot Security Starter](https://spring.io/guides/gs/securing-web/#initial) or [Keycloak Spring Boot Starters](https://www.keycloak.org/docs/latest/securing_apps/#_spring_boot_adapter)
 > make sure to include them separately in your project.
 
-<!-- TODO: Add note about maven central or github packages, based on decision where to host the artifacts -->
-
 ```xml
 <dependency>
     <groupId>io.github.trustedshops-public</groupId>
