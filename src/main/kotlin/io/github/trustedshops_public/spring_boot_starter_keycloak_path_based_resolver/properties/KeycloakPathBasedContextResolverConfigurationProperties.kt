@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration
 import kotlin.properties.Delegates
 
 @Configuration
-@ConfigurationProperties("keycloak.path-based-resolve")
-@ConditionalOnProperty("keycloak.path-based-resolve.enabled", havingValue = "true")
+@ConfigurationProperties("keycloak-path-based-resolve")
+@ConditionalOnProperty("keycloak-path-based-resolve.enabled", havingValue = "true")
 open class KeycloakPathBasedContextResolverConfigurationProperties {
      /**
       * List of contexts, identified by a unique name
