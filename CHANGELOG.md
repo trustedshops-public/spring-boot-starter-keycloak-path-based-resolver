@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/1.0.5...2.0.0) (2022-11-08)
+
+
+### Bug Fixes
+
+* Rename config properties prefix to avoid collision with spring boot keycloak properties ([de99e03](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/commit/de99e035a4785f009decb0fff599d99b735a6acc))
+
+
+### BREAKING CHANGES
+
+* The config property prefix changed from keycloak.path-based-resolve to keycloak-path-based-resolve
+
 ## [1.0.5](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/1.0.4...1.0.5) (2022-11-08)
 
 
