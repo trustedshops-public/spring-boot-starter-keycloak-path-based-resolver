@@ -64,7 +64,7 @@
         <dokka.version>1.7.20</dokka.version>
         <kotlin.version>1.7.21</kotlin.version>
         <junit.version>5.9.1</junit.version>
-        <spring-boot.version>2.7.5</spring-boot.version>
+        <spring-boot.version>2.7.6</spring-boot.version>
         <keycloak.version>20.0.1</keycloak.version>
 
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
