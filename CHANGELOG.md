@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/2.0.3...2.0.4) (2023-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency org.junit:junit-bom to v5.9.2 ([#30](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/issues/30)) ([e1b2ecd](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/commit/e1b2ecd6beb8d11b73d01c8d9e51b7e99b9ac126))
+
 ## [2.0.3](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/2.0.2...2.0.3) (2022-12-23)
 
 
