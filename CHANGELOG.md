@@ -1,3 +1,10 @@
+## [2.0.8](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/2.0.7...2.0.8) (2023-02-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency org.keycloak.bom:keycloak-adapter-bom to v20.0.5 ([#36](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/issues/36)) ([96d53cd](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/commit/96d53cd4a1cfae9d489dc313e3be9ef41f69523d))
+
 ## [2.0.7](https://github.com/trustedshops-public/spring-boot-starter-keycloak-path-based-resolver/compare/2.0.6...2.0.7) (2023-02-20)
 
 
